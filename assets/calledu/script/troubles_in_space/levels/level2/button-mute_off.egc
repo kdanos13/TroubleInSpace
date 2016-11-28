@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="lib.behaviors.2d.ToggleButton"><_States><_State id="Normal Image"><Value><![CDATA[image:troubles_in_space.button-mute_off]]></Value></_State><_State id="Mouse Over Image"><Value><![CDATA[image:troubles_in_space.button-mute_off-hover]]></Value></_State><_State id="Toggled Normal Image"><Value><![CDATA[image:troubles_in_space.button-mute_on]]></Value></_State><_State id="Toggled Mouse Over Image"><Value><![CDATA[image:troubles_in_space.button-mute_on-hover]]></Value></_State></_States></Entity><Entity extends="troubles_in_space.mylib.behaviors.AudioButton"/></Extends><_States><_State id="name"><Value><![CDATA[Malakia]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.button-mute_off]]></Value></_State></_States></Entity>

@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.Cloud"><_States><_State id="slowSpeed"><Value><![CDATA[7]]></Value></_State></_States></Entity></Extends><_States><_State id="name"><Value><![CDATA[Malakia]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.l1-earth-cloud04]]></Value></_State></_States></Entity>

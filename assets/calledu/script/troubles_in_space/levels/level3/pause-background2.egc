@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.PauseBackground"/></Extends><_States><_State id="name"><Value><![CDATA[pauseBackground]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.pause-background2]]></Value></_State></_States></Entity>

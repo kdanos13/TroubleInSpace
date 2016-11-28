@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.AdobeAnimation">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.Alf"/></Extends><_States><_State id="name"><Value><![CDATA[Alf Sprite]]></Value></_State><_State id="2DMeshAdobeAnimationForm"><Value><![CDATA[data:troubles_in_space.AlfCharacter.library]]></Value></_State><_State id="Atlas Folder"><Value><![CDATA[image:troubles_in_space.AlfCharacter]]></Value></_State><_State id="Init Animation"><Value><![CDATA[~faceExpression7_plain_mc]]></Value></_State></_States></Entity>

@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.LevelButton"><_States><_State id="gotoLevel"><Value><![CDATA[16]]></Value></_State><_State id="myWorld"><Value><![CDATA[4]]></Value></_State><_State id="Locked Image"><Value><![CDATA[image:troubles_in_space.locked_2]]></Value></_State></_States></Entity></Extends><_States><_State id="name"><Value><![CDATA[LvlSelect:LvlButton16]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.P]]></Value></_State></_States></Entity>

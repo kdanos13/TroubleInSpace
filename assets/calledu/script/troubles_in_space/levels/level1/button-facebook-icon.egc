@@ -1,0 +1,22 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="lib.behaviors.2d.Button"><_States><_State id="Normal Image"><Value><![CDATA[image:troubles_in_space.button-exit2]]></Value></_State><_State id="Mouse Over Image"><Value><![CDATA[image:troubles_in_space.button-exit2_hover]]></Value></_State></_States></Entity></Extends><_States><_State id="name"><Value><![CDATA[Malakia]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.button-exit2]]></Value></_State></_States>
+<_Triggers>
+	<Trigger>
+		<Event>MouseLeftClick</Event>
+		<Scripts>
+			<Script>
+				// Load native UI library
+				var gui = require('nw.gui');
+
+				// Print arguments
+				console.log(gui.App.argv);
+
+				// Quit current app
+				gui.App.quit();
+			</Script>
+		</Scripts>
+	</Trigger>
+</_Triggers>
+</Entity>

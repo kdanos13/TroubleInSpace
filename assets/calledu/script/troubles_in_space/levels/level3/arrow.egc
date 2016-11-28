@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.ClockArrow"/></Extends><_States><_State id="name"><Value><![CDATA[ClockArrow]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.arrow]]></Value></_State></_States></Entity>

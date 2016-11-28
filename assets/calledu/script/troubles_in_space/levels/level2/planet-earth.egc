@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.MultipleWorldImages"><_States><_State id="World1 Image"><Value><![CDATA[image:troubles_in_space.planet-earth]]></Value></_State><_State id="World2 Image"><Value><![CDATA[image:troubles_in_space.planet-moon]]></Value></_State><_State id="World3 Image"><Value><![CDATA[image:troubles_in_space.planet-ice]]></Value></_State><_State id="World4 Image"><Value><![CDATA[image:troubles_in_space.planet-water]]></Value></_State><_State id="World5 Image"><Value><![CDATA[image:troubles_in_space.planet-lava]]></Value></_State></_States></Entity></Extends><_States><_State id="name"><Value><![CDATA[LvlSelect:Planet]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.planet-earth]]></Value></_State></_States></Entity>
