@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Trouble In Space</title>
+
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71641465-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="icons/57x57.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/72x72.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/144x144.png">
+	  
+  <!-- Ubuntu Font-->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400' rel='stylesheet' type='text/css'>
+
+  <style>
+   html, body {
+	  height: 100%;
+      margin: 0;
+      /*background: red;*/
+	  /*overflow: hidden;*/
+    }
+	
+	body {
+    background-image: url("bg-pattern01.png");
+	}
+
+    #content {
+	  margin: 0;
+	  width: 100%;
+	  height: 100%;
+      /*min-height: 100%;
+	  background: rgb(66,84,102);*/
+    }
+
+	
+	#loadingDiv {
+		position: absolute;
+		margin: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 400px;
+		height: 250px;
+	}
+	
+	#loadingImg {
+		position: absolute;
+		margin: auto;
+		top: 250px;
+		right: 0;
+		bottom: 0;
+		left: -100px;
+		width:650px;
+	}
+	
+	#loadingCircle {
+		position: absolute;
+		margin: auto;
+		top: -120px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width:50px;
+	}
+	
+	#loadingText {
+		position: absolute;
+		margin: auto;
+		top: 110px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-align:center;
+		color: white;
+		font-size: 17px;
+		font-family: ubuntu;
+	}
+  </style>
+</head>
+<body>
+	
+<!-- Main Content Div -->
+<div id="content"></div>
+
+<div id="loadingDiv">
+	<!-- Loading Image -->
+	<img id="loadingImg" src="Loading.png"/>
+
+	<!-- Loading Circle -->
+	<img id="loadingCircle" src="loadCircle.gif"/>
+	
+	<!-- Loading Text -->
+	<div id="loadingText">Booting up the engine...</div>
+</div>
+
+<!-- remote skc url -->
+<script>
+function getMainSparkClientUrl(){
+	var queryDict = {};//{user:'calledu', project:'troubles_in_space'};
+	//location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
+	//console.log('getMainSparkClientUrl',queryDict);
+	return queryDict;
+} 
+</script>
+
+<!-- remove Loading Image -->
+<script>
+function hidePreloader(){
+var element = document.getElementById("loadingDiv");
+if (element!=null)
+	element.parentNode.removeChild(element);
+}
+function setPreloaderText(message){
+var element = document.getElementById("loadingText");
+if (element!=null)
+	element.innerHTML = message;
+}
+</script>
+
+
+<!-- Flambe -->
+<script src="flambe.js"></script>
+<script>
+  flambe.embed(["targets/main-html.js"], "content");
+</script>
+
+<script>
+/*
+// Load native UI library
+var ngui = require('nw.gui');
+
+// Get the current window
+var nwin = ngui.Window.get();
+
+onload = function() {
+    nwin.show();
+    nwin.maximize();
+}
+*/
+</script>
+
+</body>
+</html>
