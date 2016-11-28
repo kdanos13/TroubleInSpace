@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+	<_States>
+		<_State id="touchable"><Value>true</Value></_State>
+		<State><Id>Normal Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>Mouse Over Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>Toggled Normal Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>Toggled Mouse Over Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>Toggled</Id><Type>Boolean</Type><Value>false</Value></State>
+	</_States>
+	
+	<_Triggers>
+		<Trigger>
+			<Event>MouseEntered</Event>
+			<Scripts>
+				<Script>
+				    if (me.s('Toggled'))
+				    {
+				        if (me.s("Toggled Mouse Over Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Toggled Mouse Over Image"));
+				    }
+				    else
+				    {
+				        if (me.s("Mouse Over Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Mouse Over Image"));
+				    }
+					
+					e('Untitled Project').fa('Play Sound', {soundName: "rollover"});
+				</Script>
+			</Scripts>
+		</Trigger>
+		<Trigger>
+			<Event>MouseLeft</Event>
+			<Scripts>
+				<Script>
+				    if (me.s('Toggled'))
+				    {
+				        if (me.s("Toggled Normal Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Toggled Normal Image"));
+				    }
+				    else
+				    {
+				        if (me.s("Normal Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Normal Image"));
+				    }
+				</Script>
+			</Scripts>
+		</Trigger>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+					me.set('Toggled', !me.s('Toggled'));
+					
+                    if (me.s('Toggled'))
+				    {
+				        if (me.s("Toggled Mouse Over Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Toggled Mouse Over Image"));
+				    }
+				    else
+				    {
+				        if (me.s("Mouse Over Image")!="Undefined")
+				            me.set("2DMeshImageForm",me.s("Mouse Over Image"));
+				    }
+				    
+				    e('Untitled Project').fa('Play Sound', {soundName: "click02"});
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>
