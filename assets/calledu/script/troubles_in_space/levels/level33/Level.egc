@@ -1,0 +1,26 @@
+<Entity extends="std.primitives.core.Level">
+	<Form>
+		<Space>
+			<Entities>
+				<Entity extends="std.core.LevelReference">
+					<_States>
+						<_State id="type"><Value>Module</Value></_State>
+						<_State id="url"><Value><![CDATA[Level33]]></Value></_State>
+					</_States>
+				</Entity>
+				<Entity extends="std.core.LevelReference">
+					<_States>
+						<_State id="type"><Value>View</Value></_State>
+						<_State id="url"><Value><![CDATA[troubles_in_space.levels.level33.View]]></Value></_State>
+					</_States>
+				</Entity>
+				<Entity extends="std.core.LevelReference">
+					<_States>
+						<_State id="type"><Value>Camera</Value></_State>
+						<_State id="url"><Value><![CDATA[troubles_in_space.levels.level33.Camera]]></Value></_State>
+					</_States>
+				</Entity>
+			</Entities>
+		</Space>
+	</Form>
+</Entity>

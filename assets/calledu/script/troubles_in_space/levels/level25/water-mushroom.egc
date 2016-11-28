@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="troubles_in_space.mylib.behaviors.Mushroom"><_States><_State id="haltX"><Value><![CDATA[true]]></Value></_State><_State id="haltY"><Value><![CDATA[true]]></Value></_State><_State id="shootY"><Value><![CDATA[-11000]]></Value></_State><_State id="shootX"><Value><![CDATA[1100]]></Value></_State></_States></Entity></Extends><_States><_State id="name"><Value><![CDATA[Malakia]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.water-mushroom]]></Value></_State></_States></Entity>
