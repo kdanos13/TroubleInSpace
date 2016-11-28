@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Spritesheet">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/></Extends><_States><_State id="name"><Value><![CDATA[Untitled Object]]></Value></_State><_State id="2DMeshSpritesheetForm"><Value><![CDATA[data:troubles_in_space.RocketFlame.flame]]></Value></_State><_State id="Atlas File"><Value><![CDATA[image:troubles_in_space.RocketFlame.flame]]></Value></_State><_State id="AnimationSpeed"><Value><![CDATA[50]]></Value></_State><_State id="AnimationLoop"><Value><![CDATA[true]]></Value></_State></_States></Entity>

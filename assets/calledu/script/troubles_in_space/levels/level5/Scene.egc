@@ -1,0 +1,72 @@
+<Entity extends="std.display.Scene2D">
+	<Form><Space><Entities>
+	    <Entity extends="std.display.Div">
+			<_States>
+				<_State id="width"><Value>100%</Value></_State>
+				<_State id="height"><Value>100%</Value></_State>
+				<_State id="backgroundColor"><Value>black</Value></_State>
+			</_States>
+		</Entity>
+        <Entity extends="std.display.Text">
+			<_States>
+				<_State id="width"><Value>100%</Value></_State>
+				<_State id="height"><Value>32</Value></_State>
+				<_State id="fontSize"><Value>32px</Value></_State>
+				<_State id="fontWeight"><Value>300</Value></_State>
+				<_State id="fontColor"><Value>white</Value></_State>
+				<_State id="textAlign"><Value>center</Value></_State>
+				<_State id="verticalCenter"><Value>0</Value></_State>
+				<_State id="text"><Value>Please wait...</Value></_State>
+			</_States>
+		</Entity>
+		<Entity extends="std.primitives.nc.Video">
+			<_States>
+				<_State id="name"><Value>videoDude</Value></_State>
+				<_State id="left"><Value>0</Value></_State>
+				<_State id="top"><Value>0</Value></_State>
+				<_State id="width"><Value>100%</Value></_State>
+				<_State id="height"><Value>100%</Value></_State>
+			</_States>
+		</Entity>
+	</Entities></Space></Form>
+	
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					Display.de("Hello World!");
+					me.sa('initVideo');
+				</Script>
+			</_Scripts>
+		</_Action>
+			
+		<Action>
+			<Id>initVideo</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					if (e('videoDude').s('videoObject')!=null)
+					{
+						it.stop();
+						Display.de("VIDEO NOT NULL!");
+						videoObject = e('videoDude').s('videoObject');
+						videoObject.src="assets/video/intro1.mp4";
+						videoObject.load();
+						videoObject.play();
+						videoObject.onended = function() {
+                            e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level6.Level', preloader:me.s('preLoader'), loaderLevelName:'troubles_in_space.levels.level4.Level'});
+                        };
+                        videoObject.onclick = function() {
+                            e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level6.Level', preloader:me.s('preLoader'), loaderLevelName:'troubles_in_space.levels.level4.Level'});
+                        };
+                        
+					}
+					else
+					{
+						Display.de("VIDEO NULL!");
+					}
+				</Script>
+			</Scripts>
+		</Action>
+	</_Actions>
+</Entity>
