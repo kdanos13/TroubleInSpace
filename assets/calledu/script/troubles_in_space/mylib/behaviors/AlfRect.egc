@@ -1,0 +1,54 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	<_States>
+        <_State id="physicsType"><Value>Static</Value></_State>
+        <_State id="physicsSensorFlag"><Value>true</Value></_State>
+        <_State id="physicsShape"><Value>Polygon</Value></_State>
+        <_State id="physicsMaterial"><Value>Steel</Value></_State>
+        <_State id="visible"><Value>false</Value></_State>
+	</_States>
+
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+					//code...
+				</Script>
+			</Scripts>
+		</Trigger>
+		
+		<Trigger>
+			<Event>PhysicsSensorStart</Event>
+			<Scripts>
+				<Script>
+				    if (me.s('collidedWith').s('name')=="PlayerBall")
+				    {
+				        me.s('collidedWith').remove();
+				        
+				        /*
+    				    for (l_ball of Logic.getAllEntitiesByName('PlayerBall'))
+    				        if (l_ball!=null)
+    				            l_ball.remove();
+				        */
+				        
+				        e('Current Scene').fa('Level Won');
+				    }
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					//Enter code here...
+				</Script>
+			</_Scripts>
+		</_Action>
+	</_Actions>
+</Entity>

@@ -1,0 +1,45 @@
+<Entity>
+    <_States>
+        <_State id="touchable"><Value>true</Value></_State>
+        <State><Id>LevelNumber</Id><Type>Text</Type><Value>1</Value></State>
+        <State><Id>preLoader</Id><Type>Boolean</Type><Value>true</Value></State>
+        <State><Id>dynamicLoader</Id><Type>Boolean</Type><Value>false</Value></State>
+    </_States>
+    
+    
+    
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    if (me.s('dynamicLoader')==false)
+					    e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level'+me.s('LevelNumber')+'.Level', preloader:me.s('preLoader'), loaderLevelName:'troubles_in_space.levels.level4.Level'});
+					else //Do dynamic things here (get next level from Project or smth)
+					{
+					    Display.de('dynamic loader!');
+					    var l_currentLevel = e('Untitled Project').s('currentLevel');
+					    var l_gotoLevel = l_currentLevel+1;
+					    
+					    e('Untitled Project').set('currentLevel', l_gotoLevel);
+					    
+					    //Set highest unlocked level
+					    if (l_gotoLevel>e('Untitled Project').s('unlockedLevel'))
+					        e('Untitled Project').set('unlockedLevel', l_gotoLevel);
+					    
+					    //Convert to real level num
+    				    if (l_gotoLevel==1)
+    				        var l_levelStr="3";
+    				    else if (l_gotoLevel==27) //we won!
+    				        var l_levelStr="6";
+    				    else
+    				        var l_levelStr=Std.string(l_gotoLevel+7);
+					    
+					    
+					    e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level'+l_levelStr+'.Level', preloader:me.s('preLoader'), loaderLevelName:'troubles_in_space.levels.level4.Level'});
+					}
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

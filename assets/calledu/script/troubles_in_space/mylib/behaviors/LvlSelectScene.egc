@@ -1,0 +1,75 @@
+<Entity>
+    <_States>
+        <_State id="name"><Value>LvlSelect:Scene</Value></_State>
+        <State><Id>worldNum</Id><Type>Integer</Type><Value>1</Value></State>
+    </_States>
+    
+    <_Actions>
+	    <Action>
+			<Id>Show World</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script><![CDATA[
+				    var l_worldNum = me.set('worldNum', it.s('worldNum') );
+				    
+					//Change Images Everywhere
+				    var l_levelNumStr = Std.string(me.s('worldNum'));
+				    
+				    //Planet
+				    e('LvlSelect:Planet').set("2DMeshImageForm",e('LvlSelect:Planet').s('World'+l_levelNumStr+' Image'));
+				    
+				    //Background
+				    e('LvlSelect:Background').set("2DMeshImageForm",e('LvlSelect:Background').s('World'+l_levelNumStr+' Image'));
+				    
+				    
+				    //Clouds Back
+				    for (l_cloudBack of Logic.getAllEntitiesByName('LvlSelect:CloudsBack'))
+				        if (l_cloudBack.s('World'+l_levelNumStr+' Image')!=null)
+				            l_cloudBack.set("2DMeshImageForm",l_cloudBack.s('World'+l_levelNumStr+' Image'));
+				        
+				    //Clouds Front
+				    for (l_cloudFront of Logic.getAllEntitiesByName('LvlSelect:CloudsFront'))
+				        if (l_cloudFront.s('World'+l_levelNumStr+' Image')!=null)
+				            l_cloudFront.set("2DMeshImageForm",l_cloudFront.s('World'+l_levelNumStr+' Image'));
+				            
+				            
+				    //Show Hide Left Arrow
+				    if (l_worldNum==1)
+				        e('LvlSelect:ArrowLeft').set('visible',false);
+				    else
+				        e('LvlSelect:ArrowLeft').set('visible',true);
+				    
+				    //Show Hide Right Arrow
+				    if (l_worldNum==5)
+				        e('LvlSelect:ArrowRight').set('visible',false);
+				    else
+				        e('LvlSelect:ArrowRight').set('visible',true);
+				        
+				        
+				    //Level Buttons
+				    for (var i = 1; i < 27; i++) 
+				    { 
+                        var l_lvlStr = Std.string(i);
+                        e('LvlSelect:LvlButton'+l_lvlStr).set('visible', false);
+                    }
+				    
+				    
+				    if (l_worldNum==1) { var l_first=1; var l_last=5; }
+				    else if (l_worldNum==2) { var l_first=6; var l_last=10; }
+				    else if (l_worldNum==3) { var l_first=11; var l_last=15; }
+				    else if (l_worldNum==4) { var l_first=16; var l_last=20; }
+				    else if (l_worldNum==5) { var l_first=21; var l_last=26; }
+				    
+				    for (var j = l_first; j <= l_last; j++) 
+				    { 
+                        var l_lvlStr2 = Std.string(j);
+                        e('LvlSelect:LvlButton'+l_lvlStr2).fa('Init Button');
+                    }
+				]]></Script>
+			</Scripts>
+			<States>
+				<State><Id>worldNum</Id><Type>Integer</Type><Value>-1</Value></State>
+			</States>
+		</Action>
+	</_Actions>
+</Entity>

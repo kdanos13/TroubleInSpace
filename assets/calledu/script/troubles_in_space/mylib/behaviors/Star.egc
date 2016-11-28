@@ -1,0 +1,45 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	<_States>
+        <_State id="physicsType"><Value>Static</Value></_State>
+        <_State id="physicsSensorFlag"><Value>true</Value></_State>
+        <_State id="physicsShape"><Value>Polygon</Value></_State>
+        <_State id="physicsMaterial"><Value>Steel</Value></_State>
+	</_States>
+
+    <_Triggers>
+		<Trigger>
+			<Event>PhysicsSensorStart</Event>
+			<Scripts>
+				<Script>
+				    if (me.s('collidedWith').s('name')=="PlayerBall")
+				    {
+    					var l_starsCollected = e('Current Scene').addToState('starsCollected',1);
+    					Display.de('star collected: ' + l_starsCollected);
+    					
+    					e('Untitled Project').fa('Play Sound', {soundName: "starSound"});
+						e('Alf Sprite').fa('Play Expression', {expression:'star'});
+    					
+    					if (l_starsCollected==1)
+    					    var l_starDistance=90;
+    					else if (l_starsCollected==2)
+    					    var l_starDistance=184;
+    					else if (l_starsCollected==3)
+    					    var l_starDistance=279;
+    					
+    					var duration = 2;
+    					me.set('physicsEntity',false);
+    				    me.set('animate_x',{type:"to", to:136 + l_starDistance, seconds:duration, easing:Ease.quadInOut});
+    					me.set('animate_y',{type:"to", to:135, seconds:duration, easing:Ease.quadInOut});
+    					me.set('animate_scaleX',{type:"to", to:0.63, seconds:duration, easing:Ease.quadInOut});
+    					me.set('animate_scaleY',{type:"to", to:0.63, seconds:duration, easing:Ease.quadInOut});
+    					me.set('animate_rotation',{type:"by", by:360, seconds:duration, easing:Ease.quadInOut});
+    				}
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

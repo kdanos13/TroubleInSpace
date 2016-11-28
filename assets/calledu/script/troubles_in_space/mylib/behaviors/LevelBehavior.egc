@@ -1,0 +1,59 @@
+<Entity>
+    <_States>
+        <State><Id>levelName</Id><Type>Text</Type><Value>Unnamed Level</Value></State>
+    </_States>
+    
+    <_Actions>
+		<_Action id="Init Level">
+			<_Scripts>
+				<Script><![CDATA[
+					var l_levelName = me.s('levelName');
+					
+					if (l_levelName=='Main Menu')
+					{
+					    e('Untitled Project').fa('Loop Music', {inMenu: true});
+					        
+					    var l_storage = Logic.getStorage();
+					    l_starsPerLevel = e('Untitled Project').s('starsPerLevel');
+					    for (var i=1;i<=26;i++)
+					        l_starsPerLevel.set(i, l_storage.get(Std.string(i), 0) );
+					    
+					    e('Untitled Project').set('unlockedLevel', l_storage.get('unlockedLevel', 1) );
+					}
+					else if (l_levelName=='Level Menu')
+					{
+    					var l_currentLevel = e('Untitled Project').s('currentLevel');
+    					
+    					if (l_currentLevel<=5)
+    					    e('LvlSelect:Scene').fa('Show World', {worldNum:1});
+    					else if (l_currentLevel<=10)
+    					    e('LvlSelect:Scene').fa('Show World', {worldNum:2});
+    					else if (l_currentLevel<=15)
+    					    e('LvlSelect:Scene').fa('Show World', {worldNum:3});
+    					else if (l_currentLevel<=20)
+    					    e('LvlSelect:Scene').fa('Show World', {worldNum:4});
+    					else
+    					    e('LvlSelect:Scene').fa('Show World', {worldNum:5});
+    					    
+    					e('Untitled Project').fa('Loop Music', {inMenu: true});
+				    }
+					/*else if (l_levelName=='Loading Level')
+					{
+    					me.sa('Play Rocket Sound');
+				    }*/
+				]]></Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>Play Rocket Sound</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					if (Sound.isPlaying('sound:troubles_in_space.rocketLoop')==false)
+					        e('Untitled Project').fa('Play Sound', {soundName: "rocketLoop"});
+				</Script>
+			</Scripts>
+		</Action>
+	</_Actions>
+</Entity>

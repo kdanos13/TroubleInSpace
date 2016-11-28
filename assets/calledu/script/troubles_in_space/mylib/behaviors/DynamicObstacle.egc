@@ -1,0 +1,35 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	<_States>
+        <_State id="physicsType"><Value>Dynamic</Value></_State>
+        <_State id="physicsSensorFlag"><Value>false</Value></_State>
+        <_State id="physicsShape"><Value>Circle</Value></_State>
+        <_State id="physicsMaterial"><Value>Steel</Value></_State>
+	</_States>
+
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					//Enter code here...
+				</Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>XXXXXXXX</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					//Enter code here...
+				</Script>
+			</Scripts>
+			<States>
+				<State><Id>XXXXXXX</Id><Type>Dynamic</Type><Value>null</Value></State>
+			</States>
+		</Action>
+	</_Actions>
+</Entity>

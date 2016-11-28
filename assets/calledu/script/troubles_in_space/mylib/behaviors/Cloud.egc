@@ -1,0 +1,46 @@
+<Entity>
+	<_States>
+        <State><Id>speed</Id><Type>Integer</Type><Value>1</Value></State>
+        <State><Id>slowSpeed</Id><Type>Integer</Type><Value>0</Value></State>
+	</_States>
+
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					me.sa('Move Left');
+				</Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>Move Left</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script><![CDATA[
+				    if (me.s('slowSpeed')==0)
+				    {
+				        var l_spaceX = me.addToState('spaceX', -me.s('speed'));
+						if (l_spaceX < -10)
+							me.set('spaceX', 2300 + l_spaceX+10);
+				    }
+				    else
+				    {
+    					var l_jumpFrame = it.addToState('jumpFrame',1);
+    					
+    					if (l_jumpFrame>me.s('slowSpeed'))
+    					{
+    					    var l_spaceX = me.addToState('spaceX', -me.s('speed'));
+							if (l_spaceX < -10)
+								me.set('spaceX', 2300 + l_spaceX+10);
+    					    it.set('jumpFrame',0);
+    					}
+    				}
+				]]></Script>
+			</Scripts>
+			<States>
+				<State><Id>jumpFrame</Id><Type>Integer</Type><Value>0</Value></State>
+			</States>
+		</Action>
+	</_Actions>
+</Entity>

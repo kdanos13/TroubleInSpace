@@ -1,0 +1,41 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	<_States>
+        <_State id="physicsType"><Value>Static</Value></_State>
+        <_State id="physicsSensorFlag"><Value>false</Value></_State>
+        <_State id="physicsShape"><Value>Polygon</Value></_State>
+        <_State id="physicsMaterial"><Value>Steel</Value></_State>
+        <State><Id>shootX</Id><Type>Decimal</Type><Value>50</Value></State>
+        <State><Id>shootY</Id><Type>Decimal</Type><Value>-5000</Value></State>
+        <State><Id>haltX</Id><Type>Boolean</Type><Value>false</Value></State>
+        <State><Id>haltY</Id><Type>Boolean</Type><Value>false</Value></State>
+	</_States>
+
+    <_Triggers>
+		<Trigger>
+			<Event>PhysicsSensorStart</Event>
+			<Scripts>
+				<Script>
+					if (me.s('collidedWith').s('name')=="PlayerBall")
+				    {
+				        //Play Sound
+				        e('Untitled Project').fa('Play Sound', {soundName: "bouncy"});
+				        
+				        if (me.s('haltX'))
+				            me.s('collidedWith').set('velocityX',0);
+				            
+				        if (me.s('haltY'))
+				            me.s('collidedWith').set('velocityY',0);
+				        
+				        //Shoot it
+				        me.s('collidedWith').set('applyImpulseX',me.s('shootX'));
+				        me.s('collidedWith').set('applyImpulseY',me.s('shootY'));
+				    }
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

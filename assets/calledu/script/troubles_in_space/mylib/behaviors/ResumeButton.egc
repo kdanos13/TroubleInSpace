@@ -1,0 +1,26 @@
+<Entity>
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    //pauseBackground
+				    e('pauseBackground').set('visible',false);
+				    
+				    //pauseLabel
+				    e('pauseLabel').set('visible',false);
+				    
+				    //pauseResumeBtn
+				    e('pauseResumeBtn').set('visible',false);
+				    
+				    //pauseLevelMenuBtn
+				    e('pauseLevelMenuBtn').set('visible',false);
+					
+					e('ClockArrow').fa('Resume');
+					
+					e('Current Scene').set('physicsPaused',false);
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

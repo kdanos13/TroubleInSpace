@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+	<_States>
+		<State><Id>World1 Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>World2 Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>World3 Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>World4 Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+		<State><Id>World5 Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+	</_States>
+</Entity>

@@ -1,0 +1,12 @@
+<Entity>
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+					e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level2.Level', preloader:true, loaderLevelName:'troubles_in_space.levels.level4.Level'});
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

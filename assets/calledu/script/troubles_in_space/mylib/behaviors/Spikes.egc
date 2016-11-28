@@ -1,0 +1,32 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	<_States>
+        <_State id="physicsType"><Value>Static</Value></_State>
+        <_State id="physicsSensorFlag"><Value>false</Value></_State>
+        <_State id="physicsShape"><Value>Polygon</Value></_State>
+        <_State id="physicsMaterial"><Value>Steel</Value></_State>
+	</_States>
+
+    <_Triggers>
+		<Trigger>
+			<Event>PhysicsSensorStart</Event>
+			<Scripts>
+				<Script>
+					if (me.s('collidedWith').s('name')=="PlayerBall")
+				    {
+				        e('Current Scene').fa('Level Lost');
+				        
+				        //Play Sound
+				        e('Untitled Project').fa('Play Sound', {soundName: "shapePop"});
+				        
+				        //Destroy Ball
+				        me.s('collidedWith').remove();
+				    }
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

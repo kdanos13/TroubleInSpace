@@ -1,0 +1,5 @@
+<Entity>
+	<_States>
+        <_State id="touchable"><Value>true</Value></_State>
+	</_States>
+</Entity>

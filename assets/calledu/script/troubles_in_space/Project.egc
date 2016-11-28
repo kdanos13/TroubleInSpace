@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity extends="std.primitives.core.Project">
+	<Extends>
+
+	</Extends>
+
+	<_States>
+		<_State id="name">
+			<Value>Untitled Project</Value>
+		</_State>
+		
+		<_State id="initSpaceName">
+			<Value>Main Space</Value>
+		</_State>
+		
+		<_State id="loaderLevelUrl">
+			<Value>troubles_in_space.levels.level4.Level</Value>
+		</_State>
+			
+		<_State id="initLevelUrl">
+			<Value>troubles_in_space.levels.level5.Level</Value>
+		</_State>
+		
+		<State><Id>currentLevel</Id><Type>Integer</Type><Value>-1</Value></State>
+		<State><Id>unlockedLevel</Id><Type>Integer</Type><Value>1</Value></State>
+		<State><Id>lastLevelStars</Id><Type>Integer</Type><Value>0</Value></State>
+		<State><Id>starsPerLevel</Id><Type>Dynamic</Type><Value>null</Value></State>
+		<State><Id>muted</Id><Type>Boolean</Type><Value>false</Value></State>
+		<State><Id>currentMusicName</Id><Type>Text</Type><Value>Undefined</Value></State>
+	</_States>
+	
+	<Form>
+		<Space>
+			<Entities>
+				<Entity extends="troubles_in_space.Space"/>
+			</Entities>
+		</Space>
+	</Form>
+	
+    <_Actions>
+        <_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					me.set('starsPerLevel', new IntMap());
+				</Script>
+			</_Scripts>
+		</_Action>
+		
+    	<Action>
+    		<Id>Play Sound</Id>
+    		<Concurrency>Persistent</Concurrency>
+    		<Scripts>
+    			<Script>
+    			    //forced
+    			    
+    			    if (me.s('muted')==false)
+    			    	Sound.playSound("sound:troubles_in_space." + it.s('soundName'));
+    			</Script>
+    		</Scripts>
+    		<States>
+    			<State><Id>soundName</Id><Type>Text</Type><Value>Undefined</Value></State>
+    		</States>
+    	</Action>
+    	
+    	<Action>
+    		<Id>Loop Sound</Id>
+    		<Concurrency>Persistent</Concurrency>
+    		<Scripts>
+    			<Script>
+    			    //forced
+    			    
+    			    if (me.s('muted')==false)
+    				    Sound.loopSound("sound:troubles_in_space." + it.s('soundName'));
+    			</Script>
+    		</Scripts>
+    		<States>
+    			<State><Id>soundName</Id><Type>Text</Type><Value>Undefined</Value></State>
+    		</States>
+    	</Action>
+    	
+		<Action>
+    		<Id>Loop Music</Id>
+    		<Concurrency>Persistent</Concurrency>
+    		<Scripts>
+    			<Script><![CDATA[
+    			    //forced
+    			    
+					var l_newMusicName;
+					
+					if (it.s('inMenu')==true)
+						l_newMusicName="sound:troubles_in_space.music2";
+					else if (me.s('currentLevel')<=5)
+						l_newMusicName="sound:troubles_in_space.world1";
+					else if (me.s('currentLevel')<=10)
+						l_newMusicName="sound:troubles_in_space.world2";
+					else if (me.s('currentLevel')<=15)
+						l_newMusicName="sound:troubles_in_space.world3";
+					else if (me.s('currentLevel')<=20)
+						l_newMusicName="sound:troubles_in_space.world4";
+					else if (me.s('currentLevel')<=26)
+						l_newMusicName="sound:troubles_in_space.world5";
+					
+    			    if (me.s('muted')==false)
+					{
+						if (Sound.isPlaying(l_newMusicName)==false)
+						{
+							if (me.s('currentMusicName')!='Undefined')
+							{
+								Sound.stopSound(me.s('currentMusicName'));
+							}
+							
+							Sound.loopSound(l_newMusicName);
+						}
+					}
+					
+					me.set('currentMusicName', l_newMusicName);
+    			]]></Script>
+    		</Scripts>
+    		<States>
+    			<State><Id>inMenu</Id><Type>Boolean</Type><Value>false</Value></State>
+    		</States>
+    	</Action>
+		
+		<Action>
+    		<Id>Stop Music</Id>
+    		<Concurrency>Persistent</Concurrency>
+    		<Scripts>
+    			<Script>
+    			    //forced
+    			    
+    			    Sound.stopSound(me.s('currentMusicName'));
+    			</Script>
+    		</Scripts>
+    	</Action>
+		
+    	<Action>
+    		<Id>Toggle Mute</Id>
+    		<Concurrency>Persistent</Concurrency>
+    		<Scripts>
+    			<Script>
+    			    //forced
+    			    
+    			    if (me.s('muted'))
+    			    {
+    			        me.set('muted', false);
+						Sound.loopSound(me.s('currentMusicName'));
+    			    }
+    			    else
+    			    {
+    				    Sound.stopAllSounds();
+    				    me.set('muted', true);
+    				}
+    			</Script>
+    		</Scripts>
+    	</Action>
+    </_Actions>
+</Entity>

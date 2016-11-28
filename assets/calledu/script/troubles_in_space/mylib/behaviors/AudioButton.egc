@@ -1,0 +1,26 @@
+<Entity>
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+					e('Untitled Project').fa('Toggle Mute');
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+	
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					if (e('Untitled Project').s('muted')==true)
+					{
+					    me.set('Toggled',true);
+					    me.set("2DMeshImageForm",me.s("Toggled Normal Image"));
+					}
+				</Script>
+			</_Scripts>
+		</_Action>
+	</_Actions>
+</Entity>

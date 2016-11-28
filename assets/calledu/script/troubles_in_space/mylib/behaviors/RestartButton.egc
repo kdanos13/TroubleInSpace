@@ -1,0 +1,12 @@
+<Entity>
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    e('Untitled Project').sa('Restart Level');
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

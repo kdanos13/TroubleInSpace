@@ -1,0 +1,52 @@
+<Entity>
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					me.set('name', 'scenePauseButton');
+					Logic.registerEntityByName(me);
+				</Script>
+			</_Scripts>
+		</_Action>
+	</_Actions>
+	
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    var l_centerX=2280/2;
+				    var l_centerY=1440/2;
+				    
+				    //pauseBackground
+				    e('pauseBackground').setZorder('top');
+				    e('pauseBackground').set('spaceX',l_centerX);
+				    e('pauseBackground').set('spaceY',l_centerY);
+				    e('pauseBackground').set('visible',true);
+				    
+				    //pauseLabel
+				    e('pauseLabel').setZorder('top');
+				    e('pauseLabel').set('spaceX',l_centerX);
+				    e('pauseLabel').set('spaceY',l_centerY-200);
+				    e('pauseLabel').set('visible',true);
+				    
+				    //pauseResumeBtn
+				    e('pauseResumeBtn').setZorder('top');
+				    e('pauseResumeBtn').set('spaceX',l_centerX);
+				    e('pauseResumeBtn').set('spaceY',l_centerY+20);
+				    e('pauseResumeBtn').set('visible',true);
+				    
+				    //pauseLevelMenuBtn
+				    e('pauseLevelMenuBtn').setZorder('top');
+				    e('pauseLevelMenuBtn').set('spaceX',l_centerX);
+				    e('pauseLevelMenuBtn').set('spaceY',l_centerY+140);
+				    e('pauseLevelMenuBtn').set('visible',true);
+					
+					e('ClockArrow').fa('Pause');
+					
+					e('Current Scene').set('physicsPaused',true);
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

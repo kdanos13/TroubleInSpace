@@ -1,0 +1,55 @@
+<Entity>
+	<_States>
+        <State><Id>levelId</Id><Type>Integer</Type><Value>-1</Value></State>
+        <_State id="touchable"><Value>true</Value></_State>
+	</_States>
+
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    Sound.stopAllSounds();
+					e('Untitled Project').fa('Play Sound', {soundName: "sound_"+Std.string(me.s('levelId'))});
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+				    Sound.stopAllSounds();
+				    
+				    if (e('Untitled Project').s('starsPerLevel').exists(me.s('levelId')))
+				    {
+					    var l_numOfStars = e('Untitled Project').s('starsPerLevel').get(me.s('levelId'));
+					    
+					    if (l_numOfStars>0)
+					        me.set('visible', true);
+					    else
+					        me.set('visible', false);
+					}
+					else
+					{
+					    me.set('visible', false);
+					}
+				</Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>XXXXXXXX</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					//Enter code here...
+				</Script>
+			</Scripts>
+			<States>
+				<State><Id>XXXXXXX</Id><Type>Dynamic</Type><Value>null</Value></State>
+			</States>
+		</Action>
+	</_Actions>
+</Entity>

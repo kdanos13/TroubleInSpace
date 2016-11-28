@@ -1,0 +1,41 @@
+<Entity>
+    <_States>
+        <State><Id>isNext</Id><Type>Boolean</Type><Value>true</Value></State>
+    </_States>
+    
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    var l_scene = e('LvlSelect:Scene');
+				    
+				    var l_worldNum = l_scene.s('worldNum');
+				    
+				    if (me.s('isNext'))
+				        l_worldNum+=1;
+				    else
+				        l_worldNum-=1;
+				    
+				    l_scene.fa('Show World', {worldNum:l_worldNum});
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+	
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script><![CDATA[
+				/*
+					if (e('Untitled Project').s('unlockedLevel')<me.s('gotoLevel'))
+					{
+					    me.set("2DMeshImageForm",me.s("Locked Image"));
+					    me.set('locked',true);
+					}
+					*/
+				]]></Script>
+			</_Scripts>
+		</_Action>
+	</_Actions>
+</Entity>

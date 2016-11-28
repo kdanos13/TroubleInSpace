@@ -1,0 +1,89 @@
+<Entity>
+    <_States>
+        <_State id="touchable"><Value>true</Value></_State>
+        <State><Id>gotoLevel</Id><Type>Integer</Type><Value>-1</Value></State>
+        <State><Id>Locked Image</Id><Type>Text</Type><Value>Undefined</Value></State>
+        <State><Id>locked</Id><Type>Boolean</Type><Value>false</Value></State>
+        <State><Id>myWorld</Id><Type>Integer</Type><Value>1</Value></State>
+        <State><Id>initialized</Id><Type>Boolean</Type><Value>false</Value></State>
+    </_States>
+    
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    e('Untitled Project').fa('Play Sound', {soundName: "click01"});
+				    
+				    if (me.s('locked')==false)
+				    {
+    				    //Convert to real level num
+    				    if (me.s('gotoLevel')==1)
+    				        var l_levelStr="3";
+    				    else
+    				        var l_levelStr=Std.string(me.s('gotoLevel')+7);
+    				    
+    				    e('Untitled Project').set('currentLevel', me.s('gotoLevel'));
+    					e('Untitled Project').sa('Run Level', {levelName:'troubles_in_space.levels.level'+l_levelStr+'.Level', preloader:true, loaderLevelName:'troubles_in_space.levels.level4.Level'});
+    				}
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+	
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script><![CDATA[
+					if (e('Untitled Project').s('unlockedLevel')<me.s('gotoLevel'))
+					{
+					    me.set("2DMeshImageForm",me.s("Locked Image"));
+					    me.set('locked',true);
+					}
+				]]></Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>Init Button</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					me.set('visible', true);
+					
+					if (me.s('initialized')==false)
+					{
+					    if (e('Untitled Project').s('starsPerLevel').exists(me.s('gotoLevel')))
+					    {
+					        var l_numOfStars = e('Untitled Project').s('starsPerLevel').get(me.s('gotoLevel'));
+					        
+					        if (l_numOfStars>=1)
+					        {
+					            var l_star = Logic.create("troubles_in_space.levels.level2.star");
+					            l_star.set('spaceX', 46);
+					            l_star.set('spaceY', 126);
+					            me.addChild(l_star);
+					        }
+					        if (l_numOfStars>=2)
+					        {
+					            var l_star = Logic.create("troubles_in_space.levels.level2.star");
+					            l_star.set('spaceX', 86);
+					            l_star.set('spaceY', 126);
+					            me.addChild(l_star);
+					        }
+					        if (l_numOfStars>=3)
+					        {
+					            var l_star = Logic.create("troubles_in_space.levels.level2.star");
+					            l_star.set('spaceX', 126);
+					            l_star.set('spaceY', 126);
+					            me.addChild(l_star);
+					        }
+					    }
+					
+					    me.set('initialized', true);
+					}
+				</Script>
+			</Scripts>
+		</Action>
+	</_Actions>
+</Entity>

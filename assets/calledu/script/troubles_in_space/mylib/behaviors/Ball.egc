@@ -1,0 +1,42 @@
+<Entity>
+    <Extends>
+        <Entity extends="std.behaviors.display.PhysicsEntity2D"/>
+    </Extends>
+    
+	
+
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+					//code...
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+
+	<_Actions>
+		<_Action id="Constructor">
+			<_Scripts>
+				<Script>
+					me.set('name', 'PlayerBall');
+					Logic.registerEntityByName(me);
+				</Script>
+			</_Scripts>
+		</_Action>
+		
+		<Action>
+			<Id>XXXXXXXX</Id>
+			<Concurrency>Persistent</Concurrency>
+			<Scripts>
+				<Script>
+					//Enter code here...
+				</Script>
+			</Scripts>
+			<States>
+				<State><Id>XXXXXXX</Id><Type>Dynamic</Type><Value>null</Value></State>
+			</States>
+		</Action>
+	</_Actions>
+<_States><_State id="physicsType"><Value><![CDATA[Dynamic]]></Value></_State><_State id="physicsSensorFlag"><Value><![CDATA[false]]></Value></_State><_State id="physicsShape"><Value><![CDATA[Circle]]></Value></_State><_State id="physicsMaterial"><Value><![CDATA[Wood]]></Value></_State><_State id="name"><Value><![CDATA[Ball]]></Value></_State></_States></Entity>

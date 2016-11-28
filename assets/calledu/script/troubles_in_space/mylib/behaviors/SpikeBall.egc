@@ -1,0 +1,21 @@
+ <Entity>
+    <_Triggers>
+		<Trigger>
+			<Event>PhysicsSensorStart</Event>
+			<Scripts>
+				<Script>
+					if (me.s('collidedWith').s('name')=="PlayerBall")
+				    {
+				        e('Current Scene').fa('Level Lost');
+				        
+				        //Play Sound
+				        e('Untitled Project').fa('Play Sound', {soundName: "shapePop"});
+				        
+				        //Destroy Ball
+				        me.s('collidedWith').remove();
+				    }
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>

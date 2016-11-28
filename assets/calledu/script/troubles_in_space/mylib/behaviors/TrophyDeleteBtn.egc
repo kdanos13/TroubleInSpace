@@ -1,0 +1,18 @@
+<Entity>
+	<_Triggers>
+		<Trigger>
+			<Event>MouseLeftClick</Event>
+			<Scripts>
+				<Script>
+				    Logic.getStorage().clear();
+				    
+				    e('Untitled Project').set('currentLevel',-1);
+				    e('Untitled Project').set('unlockedLevel',1);
+				    e('Untitled Project').set('starsPerLevel', new IntMap());
+				    
+				    e('Untitled Project').sa('Restart Level');
+				</Script>
+			</Scripts>
+		</Trigger>
+	</_Triggers>
+</Entity>
