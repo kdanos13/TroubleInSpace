@@ -1,0 +1,4 @@
+<Entity extends="std.primitives.2d.Image">
+    
+	
+<Extends><Entity extends="lib.behaviors.2d.Sprite"/><Entity extends="lib.behaviors.2d.Button"><_States><_State id="Normal Image"><Value><![CDATA[image:troubles_in_space.dp-normal]]></Value></_State><_State id="Mouse Over Image"><Value><![CDATA[image:troubles_in_space.dp-hover]]></Value></_State></_States></Entity><Entity extends="troubles_in_space.mylib.behaviors.TrophyDeleteBtn"/></Extends><_States><_State id="name"><Value><![CDATA[Malakia]]></Value></_State><_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.dp-normal]]></Value></_State></_States></Entity>
