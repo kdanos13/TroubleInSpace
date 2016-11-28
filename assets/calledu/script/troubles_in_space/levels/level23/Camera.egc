@@ -1,0 +1,5 @@
+<Entity extends="std.primitives.2d.Camera">
+	<_States>
+
+	</_States>
+</Entity>

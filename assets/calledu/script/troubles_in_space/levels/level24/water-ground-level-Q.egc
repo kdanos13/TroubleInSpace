@@ -1,0 +1,9 @@
+<Entity extends="std.primitives.2d.Image">
+    <Extends>
+        <Entity extends="lib.behaviors.2d.Sprite"/>
+    </Extends>
+	<_States>
+	    <_State id="name"><Value><![CDATA[Malakia]]></Value></_State>
+		<_State id="2DMeshImageForm"><Value><![CDATA[image:troubles_in_space.water-ground-level-Q]]></Value></_State>
+	</_States>
+</Entity>
